@@ -1,0 +1,14 @@
+{
+  "name": "node-ts-starter",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "w": "tsc -w",
+    "dev": "nodemon build/server"
+  },
+  "dependencies": {
+    "@types/node": "18.15.11",
+    "nodemon": "2.0.22",
+    "typescript": "5.0.3"
+  }
+}

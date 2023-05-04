@@ -1,13 +1,17 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Home } from './pages/home'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Home } from '~/components/home'
 
 export function App() {
   return (
     <>
       <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Home />} />
-        </Routes>
+        <div className='container mx-auto'>
+          <div className='col'>
+            <Routes>
+              <Route path='/' element={<Home />} />
+            </Routes>
+          </div>
+        </div>
       </BrowserRouter>
     </>
   )

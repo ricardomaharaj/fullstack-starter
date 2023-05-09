@@ -13,7 +13,6 @@ const schema = createSchema({ typeDefs, resolvers })
 const yoga = createYoga({
   schema,
   graphqlEndpoint: '/',
-  graphiql: process.env.NODE_ENV !== 'production',
 })
 const server = createServer(yoga)
 server.listen(4000, () => console.log('http://localhost:4000/'))

@@ -5,23 +5,25 @@ import {
   Provider as UrqlProvider,
   fetchExchange,
 } from 'urql'
-import { Session } from 'next-auth'
-import { graphCache } from '~/util/graphcache'
+import { graphCache } from '~/util/graph-cache'
+import type { SessionProp } from '~/util/session-prop'
 
 const urql = createUrql({
   url: '/api/gql',
   exchanges: [graphCache, fetchExchange],
 })
 
-export default function App({
-  Component,
-  pageProps,
-}: AppProps<{ session: Session }>) {
+const App = (props: AppProps<SessionProp>) => {
+  const { Component, pageProps } = props
+  const { session } = pageProps
+
   return (
-    <SessionProvider session={pageProps.session}>
+    <SessionProvider session={session}>
       <UrqlProvider value={urql}>
         <Component {...pageProps} />
       </UrqlProvider>
     </SessionProvider>
   )
 }
+
+export default App

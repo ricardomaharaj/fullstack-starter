@@ -8,10 +8,8 @@
     "start": "node build/server"
   },
   "devDependencies": {
-    "@types/node": "18.16.3",
+    "@types/node": "20.1.7",
     "nodemon": "2.0.22",
-    "prettier": "2.8.8",
-    "prettier-plugin-organize-imports": "3.2.2",
     "ts-node": "10.9.1",
     "typescript": "5.0.4"
   }

@@ -2,9 +2,8 @@ import { builder } from '~/server/builder'
 import fs from 'node:fs'
 import { lexicographicSortSchema, printSchema } from 'graphql'
 
-import './types/user'
-
-import './queries/user'
+import './type/user'
+import './query/user'
 
 export const schema = builder.toSchema()
 

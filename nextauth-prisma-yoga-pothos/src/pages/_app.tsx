@@ -6,7 +6,7 @@ import {
   fetchExchange,
 } from 'urql'
 import { graphCache } from '~/util/graph-cache'
-import type { SessionProp } from '~/util/session-prop'
+import { SessionProp } from '~/types/session-prop'
 
 const urql = createUrql({
   url: '/api/gql',

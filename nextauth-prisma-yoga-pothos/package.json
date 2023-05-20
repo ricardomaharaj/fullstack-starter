@@ -1,5 +1,5 @@
 {
-  "name": "nextauth-prisma-yoga-pothos",
+  "name": "nextauth-prisma-yoga-pothos-starter",
   "version": "0.1.0",
   "scripts": {
     "dev": "next dev",

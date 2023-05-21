@@ -1,8 +1,8 @@
-import { type AuthOptions, getServerSession } from 'next-auth'
+import { PrismaAdapter } from '@next-auth/prisma-adapter'
+import type { NextApiRequest, NextApiResponse } from 'next'
+import { getServerSession, type AuthOptions } from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 import { env } from '~/env'
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { prisma } from '~/server/prisma'
 
 export const authOpts: AuthOptions = {

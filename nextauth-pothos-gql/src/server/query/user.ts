@@ -1,5 +1,5 @@
 import { builder } from '~/server/builder'
-import { prisma } from '~/server/prisma'
+import { Users } from '~/server/prisma'
 
 builder.queryFields((t) => ({
   users: t.prismaField({
@@ -9,14 +9,14 @@ builder.queryFields((t) => ({
       take: t.arg.int({ required: true, defaultValue: 10 }),
     },
     resolve: async (query, _, { skip, take }) => {
-      return await prisma.user.findMany({ skip, take, ...query })
+      return await Users.findMany({ skip, take, ...query })
     },
   }),
   user: t.prismaField({
     type: 'User',
     args: { userId: t.arg.string({ required: true }) },
     resolve: async (query, _, { userId }) => {
-      return await prisma.user.findUniqueOrThrow({
+      return await Users.findUniqueOrThrow({
         where: { id: userId },
         ...query,
       })

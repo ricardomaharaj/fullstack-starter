@@ -1,11 +1,11 @@
+import { readFileSync } from 'fs'
 import { createSchema, createYoga } from 'graphql-yoga'
+import { Yoga } from '~/types/yoga'
 
-const schema = createSchema({
-  typeDefs: `
-    type Query {
-      now: String
-    }
-  `,
+const typeDefs = readFileSync('./gql/schema.gql').toString('utf8')
+
+const schema = createSchema<Yoga>({
+  typeDefs,
   resolvers: {
     Query: {
       now: () => new Date().toString(),
@@ -13,6 +13,6 @@ const schema = createSchema({
   },
 })
 
-const yoga = createYoga({ schema, graphqlEndpoint: '/api/gql' })
+const yoga = createYoga<Yoga>({ schema, graphqlEndpoint: '/api/gql' })
 
 export default yoga

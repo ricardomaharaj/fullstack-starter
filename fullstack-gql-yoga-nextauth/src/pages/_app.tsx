@@ -1,18 +1,9 @@
 import { Session } from 'next-auth'
 import { SessionProvider } from 'next-auth/react'
-import type { AppProps } from 'next/app'
-import {
-  Provider as UrqlProvider,
-  createClient as createUrql,
-  fetchExchange,
-} from 'urql'
+import { AppProps } from 'next/app'
+import { Header } from '~/comps/header'
 import '~/style/tw.css'
-import { graphCache } from '~/util/graph-cache'
-
-const urql = createUrql({
-  url: '/api/gql',
-  exchanges: [graphCache, fetchExchange],
-})
+import { Urql } from '~/util/urql'
 
 export default function App(props: AppProps<{ session: Session }>) {
   const { Component, pageProps } = props
@@ -20,9 +11,10 @@ export default function App(props: AppProps<{ session: Session }>) {
 
   return (
     <SessionProvider session={session}>
-      <UrqlProvider value={urql}>
+      <Urql>
+        <Header />
         <Component {...pageProps} />
-      </UrqlProvider>
+      </Urql>
     </SessionProvider>
   )
 }

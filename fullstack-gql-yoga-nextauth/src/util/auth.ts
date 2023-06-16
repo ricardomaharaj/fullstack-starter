@@ -1,6 +1,6 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { getServerSession, type AuthOptions } from 'next-auth'
+import { NextApiRequest, NextApiResponse } from 'next'
+import { AuthOptions, getServerSession } from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 import { env } from '~/env'
 import { prisma } from '~/server/prisma'

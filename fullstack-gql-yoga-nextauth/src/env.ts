@@ -1,10 +1,7 @@
 import { z } from 'zod'
 
 const zEnv = z.object({
-  NODE_ENV: z
-    .enum(['development', 'production'])
-    .optional()
-    .default('development'),
+  NODE_ENV: z.enum(['development', 'production']),
 
   DATABASE_URL: z.string(),
 

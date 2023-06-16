@@ -1,11 +1,11 @@
 import Builder from '@pothos/core'
 import PrismaPlugin from '@pothos/plugin-prisma'
 import { prisma } from '~/server/prisma'
-import { BuilderType } from '~/types/builder'
+import { TBuilder } from '~/types/builder'
 
-export const builder = new Builder<BuilderType>({
+export const builder = new Builder<TBuilder>({
   plugins: [PrismaPlugin],
   prisma: { client: prisma },
 })
 
-builder.queryType({ fields: () => ({}) })
+builder.queryType({ fields: (t) => ({}) })

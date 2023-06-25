@@ -1,7 +1,7 @@
 import type PrismaTypes from '@pothos/plugin-prisma/generated'
-import type { Yoga } from '~/types/yoga'
+import type { YogaContext } from '~/types/yoga-context'
 
 export type TBuilder = {
-  Context: Yoga
+  Context: YogaContext
   PrismaTypes: PrismaTypes
 }

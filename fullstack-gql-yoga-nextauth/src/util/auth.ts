@@ -1,9 +1,9 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
-import { NextApiRequest, NextApiResponse } from 'next'
 import { AuthOptions, getServerSession } from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
-import { env } from '~/env'
+import { env } from '~/server/env'
 import { prisma } from '~/server/prisma'
+import { YogaServerContext } from '~/types/yoga-context'
 
 export const authOpts: AuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -24,12 +24,7 @@ export const authOpts: AuthOptions = {
   },
 }
 
-export function getAuthServerSession({
-  req,
-  res,
-}: {
-  req: NextApiRequest
-  res: NextApiResponse
-}) {
+export function getAuthServerSession(args: YogaServerContext) {
+  const { req, res } = args
   return getServerSession(req, res, authOpts)
 }

@@ -4,8 +4,8 @@ type Query {
 }
 
 type User {
-  email: String
+  email: String!
   id: String!
-  image: String
-  name: String
+  image: String!
+  name: String!
 }

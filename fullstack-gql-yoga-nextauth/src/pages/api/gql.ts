@@ -1,14 +1,14 @@
 import { createYoga } from 'graphql-yoga'
 import { PageConfig } from 'next'
-import { env } from '~/env'
+import { env } from '~/server/env'
 import { schema } from '~/server/schema'
-import { Yoga } from '~/types/yoga'
+import { YogaServerContext } from '~/types/yoga-context'
 import { getAuthServerSession } from '~/util/auth'
 import { GQLError } from '~/util/gql-error'
 
 export const config: PageConfig = { api: { bodyParser: false } }
 
-const yoga = createYoga<Yoga>({
+const yoga = createYoga<YogaServerContext>({
   schema,
   graphqlEndpoint: '/api/gql',
   graphiql: env.NODE_ENV === 'development',

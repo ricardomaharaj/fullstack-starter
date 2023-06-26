@@ -15,4 +15,4 @@ const schema = createSchema<Yoga>({
 
 const yoga = createYoga<Yoga>({ schema, graphqlEndpoint: '/api/gql' })
 
-export default yoga
+export default Yoga

@@ -1,0 +1,32 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "postinstall": "prisma generate",
+    "gen": "prisma generate",
+    "push": "prisma db push",
+    "studio": "prisma studio"
+  },
+  "dependencies": {
+    "@pothos/core": "3.32.1",
+    "@pothos/plugin-prisma": "3.53.0",
+    "@prisma/client": "5.0.0",
+    "@types/node": "20.4.5",
+    "@types/react": "18.2.17",
+    "@types/react-dom": "18.2.7",
+    "@urql/exchange-graphcache": "^6.3.1",
+    "graphql": "16.7.1",
+    "graphql-scalars": "1.22.2",
+    "graphql-yoga": "4.0.3",
+    "next": "13.4.12",
+    "prisma": "5.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "5.1.6",
+    "urql": "4.0.5",
+    "zod": "3.21.4"
+  }
+}

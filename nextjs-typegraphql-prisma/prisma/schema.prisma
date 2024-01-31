@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator typegraphql {
+  provider                 = "typegraphql-prisma"
+  omitInputFieldsByDefault = ["createdAt", "updatedAt"]
+  useSimpleInputs          = true
+  simpleResolvers          = true
+  emitIdAsIDType           = true
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:../db.sqlite"
+}
+
+model Task {
+  id String @id @default(cuid())
+
+  //
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

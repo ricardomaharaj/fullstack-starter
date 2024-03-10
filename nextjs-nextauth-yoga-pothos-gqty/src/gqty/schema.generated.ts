@@ -2,7 +2,7 @@
  * GQTY AUTO-GENERATED CODE: PLEASE DO NOT MODIFY MANUALLY
  */
 
-export type Maybe<T> = T | null
+export type Maybe<T> = T | undefined
 export type InputMaybe<T> = Maybe<T>
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K]
@@ -24,6 +24,18 @@ export interface Scalars {
   DateTime: string
 }
 
+export interface UserListFilter {
+  name?: InputMaybe<Scalars['String']>
+}
+
+export interface UserListSearch {
+  name?: InputMaybe<Scalars['String']>
+}
+
+export interface UserListSort {
+  createdAt?: InputMaybe<Scalars['Boolean']>
+}
+
 export const scalarsEnumsHash: import('gqty').ScalarsEnumsHash = {
   Boolean: true,
   DateTime: true,
@@ -40,11 +52,23 @@ export const generatedSchema = {
     name: { __type: 'String!' },
     updatedAt: { __type: 'DateTime!' },
   },
+  UserListFilter: { name: { __type: 'String' } },
+  UserListSearch: { name: { __type: 'String' } },
+  UserListSort: { createdAt: { __type: 'Boolean' } },
   mutation: {},
   query: {
     __typename: { __type: 'String!' },
     user: { __type: 'User!', __args: { userId: 'String!' } },
-    users: { __type: '[User!]!', __args: { skip: 'Int', take: 'Int' } },
+    users: {
+      __type: '[User!]!',
+      __args: {
+        filter: 'UserListFilter',
+        search: 'UserListSearch',
+        skip: 'Int',
+        sort: 'UserListSort',
+        take: 'Int',
+      },
+    },
   },
   subscription: {},
 } as const
@@ -67,10 +91,13 @@ export interface Query {
   __typename?: 'Query'
   user: (args: { userId: Scalars['String'] }) => User
   users: (args?: {
+    filter?: Maybe<UserListFilter>
+    search?: Maybe<UserListSearch>
     /**
      * @defaultValue `0`
      */
     skip?: Maybe<Scalars['Int']>
+    sort?: Maybe<UserListSort>
     /**
      * @defaultValue `10`
      */

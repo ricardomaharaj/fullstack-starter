@@ -5,7 +5,13 @@ scalar DateTime
 
 type Query {
   user(userId: String!): User!
-  users(skip: Int = 0, take: Int = 10): [User!]!
+  users(
+    filter: UserListFilter
+    search: UserListSearch
+    skip: Int = 0
+    sort: UserListSort
+    take: Int = 10
+  ): [User!]!
 }
 
 type User {
@@ -15,4 +21,16 @@ type User {
   image: String
   name: String!
   updatedAt: DateTime!
+}
+
+input UserListFilter {
+  name: String
+}
+
+input UserListSearch {
+  name: String
+}
+
+input UserListSort {
+  createdAt: Boolean
 }

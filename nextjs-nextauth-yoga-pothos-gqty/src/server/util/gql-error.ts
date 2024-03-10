@@ -8,5 +8,7 @@ const errorCodes = {
 }
 
 export function GQLError(code: keyof typeof errorCodes) {
-  return new GraphQLError('ERROR', { extensions: { http: { status: code } } })
+  return new GraphQLError(errorCodes[code], {
+    extensions: { http: { status: code } },
+  })
 }

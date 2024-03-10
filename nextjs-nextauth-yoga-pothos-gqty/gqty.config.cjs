@@ -1,7 +1,7 @@
 /**
  * @type {import("@gqty/cli").GQtyConfig}
  */
-const config = {
+module.exports = {
   react: true,
   scalarTypes: { DateTime: 'string' },
   introspection: {
@@ -13,5 +13,3 @@ const config = {
   javascriptOutput: false,
   enumsAsConst: true,
 }
-
-module.exports = config

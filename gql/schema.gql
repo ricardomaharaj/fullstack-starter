@@ -17,7 +17,7 @@ type Query {
 type User {
   createdAt: DateTime!
   email: String!
-  id: String!
+  id: ID!
   image: String
   name: String!
   updatedAt: DateTime!

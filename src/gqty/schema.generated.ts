@@ -53,6 +53,7 @@ export interface UserListSort {
 export const scalarsEnumsHash: ScalarsEnumsHash = {
   Boolean: true,
   DateTime: true,
+  ID: true,
   Int: true,
   String: true,
 };
@@ -61,7 +62,7 @@ export const generatedSchema = {
     __typename: { __type: "String!" },
     createdAt: { __type: "DateTime!" },
     email: { __type: "String!" },
-    id: { __type: "String!" },
+    id: { __type: "ID!" },
     image: { __type: "String" },
     name: { __type: "String!" },
     updatedAt: { __type: "DateTime!" },
@@ -95,7 +96,7 @@ export interface User {
   __typename?: "User";
   createdAt: ScalarsEnums["DateTime"];
   email: ScalarsEnums["String"];
-  id: ScalarsEnums["String"];
+  id: ScalarsEnums["ID"];
   image?: Maybe<ScalarsEnums["String"]>;
   name: ScalarsEnums["String"];
   updatedAt: ScalarsEnums["DateTime"];

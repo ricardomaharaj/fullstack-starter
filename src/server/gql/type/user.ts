@@ -1,8 +1,9 @@
 import { builder } from '~/server/gql/builder'
 
 builder.prismaObject('User', {
+  select: { id: true },
   fields: (t) => ({
-    id: t.exposeString('id'),
+    id: t.exposeID('id'),
     name: t.exposeString('name'),
     email: t.exposeString('email'),
     image: t.exposeString('image', { nullable: true }),

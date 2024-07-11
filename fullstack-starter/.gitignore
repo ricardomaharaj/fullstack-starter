@@ -1,0 +1,9 @@
+node_modules
+tmp
+.next
+.env
+
+npm*
+pnpm*
+yarn*
+bun*

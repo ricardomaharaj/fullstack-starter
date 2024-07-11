@@ -1,0 +1,37 @@
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+
+type Query {
+  """get the current user"""
+  my: User!
+
+  """get a user by id"""
+  user(userId: String!): User!
+
+  """get a list of users"""
+  users(filter: UserListFilter, search: UserListSearch, skip: Int = 0, sort: UserListSort, take: Int = 10): [User!]!
+}
+
+type User {
+  createdAt: DateTime!
+  email: String!
+  id: String!
+  image: String
+  name: String!
+  updatedAt: DateTime!
+}
+
+input UserListFilter {
+  name: String
+}
+
+input UserListSearch {
+  name: String
+}
+
+input UserListSort {
+  createdAt: Boolean
+  updatedAt: Boolean
+}

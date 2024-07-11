@@ -1,3 +1,3 @@
-# Starter Code
+# Fullstack Starter
 
-Starter code for different stacks
+Starter code for a NextJS fullstack app

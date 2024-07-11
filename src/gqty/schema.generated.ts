@@ -36,10 +36,12 @@ export interface Scalars {
 }
 
 export interface UserListFilter {
+  email?: InputMaybe<Scalars["String"]["input"]>;
   name?: InputMaybe<Scalars["String"]["input"]>;
 }
 
 export interface UserListSearch {
+  email?: InputMaybe<Scalars["String"]["input"]>;
   name?: InputMaybe<Scalars["String"]["input"]>;
 }
 
@@ -64,8 +66,8 @@ export const generatedSchema = {
     name: { __type: "String!" },
     updatedAt: { __type: "DateTime!" },
   },
-  UserListFilter: { name: { __type: "String" } },
-  UserListSearch: { name: { __type: "String" } },
+  UserListFilter: { email: { __type: "String" }, name: { __type: "String" } },
+  UserListSearch: { email: { __type: "String" }, name: { __type: "String" } },
   UserListSort: {
     createdAt: { __type: "Boolean" },
     updatedAt: { __type: "Boolean" },

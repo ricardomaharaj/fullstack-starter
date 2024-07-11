@@ -14,12 +14,14 @@ const userListSort = builder.inputType('UserListSort', {
 const userListFilter = builder.inputType('UserListFilter', {
   fields: (t) => ({
     name: t.string(),
+    email: t.string(),
   }),
 })
 
 const userListSearch = builder.inputType('UserListSearch', {
   fields: (t) => ({
     name: t.string(),
+    email: t.string(),
   }),
 })
 
@@ -43,11 +45,11 @@ export const userListQuery = (
     where: {
       AND: [
         { name: qh.strContains(args.filter?.name) },
+        { email: qh.strContains(args.filter?.email) },
         {
           OR: [
-            {
-              name: qh.strContains(args.search?.name),
-            },
+            { name: qh.strContains(args.search?.name) },
+            { email: qh.strContains(args.search?.email) },
           ],
         },
       ],

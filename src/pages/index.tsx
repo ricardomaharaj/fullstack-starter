@@ -12,7 +12,7 @@ export default function Home() {
       {auth ? (
         <div>{q.my.name}</div>
       ) : (
-        <div>please sign in to fetch data from graphql</div>
+        <div>sign in to fetch data from graphql</div>
       )}
     </>
   )

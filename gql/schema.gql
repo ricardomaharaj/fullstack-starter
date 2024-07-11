@@ -24,10 +24,12 @@ type User {
 }
 
 input UserListFilter {
+  email: String
   name: String
 }
 
 input UserListSearch {
+  email: String
   name: String
 }
 
